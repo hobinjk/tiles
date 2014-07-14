@@ -47,16 +47,31 @@ define(function() {
   GameModel.prototype.move = function(tileId) {
     var free = this.tilesById['tile-free'];
     var tile = this.tilesById[tileId];
-    if (!this.tilesNeighboring(free, tile)) {
-      return;
+    if (free.x === tile.x && free.y !== tile.y) {
+      var deltaY = tile.y > free.y ? -1 : 1;
+      var startY = tile.y;
+      var columnTiles = [];
+      for (var y = startY; y !== free.y; y += deltaY) {
+        columnTiles.push(this.tileAt(tile.x, y));
+      }
+      for (var colI = 0; colI < columnTiles.length; colI++) {
+        columnTiles[colI].y += deltaY;
+      }
+      free.y = startY;
     }
-    // Swap the tiles
-    var tmp = tile.x;
-    tile.x = free.x;
-    free.x = tmp;
-    tmp = tile.y;
-    tile.y = free.y;
-    free.y = tmp;
+
+    if (free.y === tile.y && free.x !== tile.x) {
+      var deltaX = tile.x > free.x ? -1 : 1;
+      var startX = tile.x;
+      var rowTiles = [];
+      for (var x = startX; x !== free.x; x += deltaX) {
+        rowTiles.push(this.tileAt(x, tile.y));
+      }
+      for (var rowI = 0; rowI < rowTiles.length; rowI++) {
+        rowTiles[rowI].x += deltaX;
+      }
+      free.x = startX;
+    }
   };
 
   /**
@@ -100,6 +115,21 @@ define(function() {
    */
   GameModel.prototype.tileDistance = function(tileA, tileB) {
     return Math.abs(tileA.x - tileB.x) + Math.abs(tileA.y - tileB.y);
+  };
+
+  /**
+   * @param {number} x x coordinate of tile
+   * @param {number} y y coordinate of tile
+   * @return {Object} Tile at coordinates
+   */
+  GameModel.prototype.tileAt = function(x, y) {
+    for (var i = 0; i < this.tiles.length; i++) {
+      var tile = this.tiles[i];
+      if (tile.x === x && tile.y === y) {
+        return tile;
+      }
+    }
+    return null;
   };
 
   return GameModel;
