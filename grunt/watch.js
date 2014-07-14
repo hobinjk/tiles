@@ -3,7 +3,6 @@ module.exports = function (grunt) {
   'use strict';
   grunt.event.on('watch', function (action, filepath) {
     grunt.config('jscs.src', [filepath]);
-    grunt.config('eslint.target', filepath);
   });
   return {
     options: {

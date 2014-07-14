@@ -1,8 +1,8 @@
 var metrics = require('famous-metrics');
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
   'use strict';
-  grunt.registerTask('serve', function (target) {
+  grunt.registerTask('serve', function(target) {
     if (!metrics.getTinfoil()) {
       metrics.track('grunt serve', {});
     }
@@ -35,10 +35,9 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('lint', [
-    'jscs',
-    'eslint'
+    'jscs'
   ]);
-  
+
   grunt.registerTask('test', [
     'lint'
   ]);
