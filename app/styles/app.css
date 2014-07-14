@@ -1,0 +1,12 @@
+html {
+    background-color: #fff;
+    color: #000;
+}
+
+.tile {
+  background-image: url('../assets/firefox-512-noshadow.png');
+}
+
+.tile-free {
+  display: none;
+}
