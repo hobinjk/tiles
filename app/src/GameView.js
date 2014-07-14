@@ -9,8 +9,8 @@ define(function(require) {
     this.model = model;
     this.width = width;
     this.height = height;
-    this.tileWidth = width / model.width;
-    this.tileHeight = height / model.height;
+    this.tileWidth = Math.ceil(width / model.width);
+    this.tileHeight = Math.ceil(height / model.height);
     this.mainContext = Engine.createContext();
     this.createTiles();
   }
