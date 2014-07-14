@@ -4,7 +4,7 @@ html {
 }
 
 .tile {
-  background-image: url('../assets/firefox-512-noshadow.png');
+  background-image: url('/content/images/firefox-512-noshadow.png');
 }
 
 .tile-free {

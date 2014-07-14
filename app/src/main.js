@@ -9,9 +9,8 @@ define(function(require) {
   var view = new GameView(model, width, width);
 
   var lastTile = null;
-  for (var i = 0; i < 100; i++) {
+  for (var i = 0; i < 50; i++) {
     lastTile = model.moveRandom(lastTile);
     view.updateTileModifiers(100);
   }
 });
-
