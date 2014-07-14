@@ -1,0 +1,13 @@
+{
+  "name": "tiles",
+  "description": "Basic tiles game using Famo.us.",
+  "launch_path": "/index.html",
+  "icons": {
+    "128": "/img/icon-128.png"
+  },
+  "developer": {
+    "name": "James Hobin",
+    "url": "http://github.com/hobinjk"
+  },
+  "default_locale": "en"
+}
