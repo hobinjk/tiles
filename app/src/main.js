@@ -4,7 +4,7 @@ define(function(require) {
   var GameModel = require('GameModel');
   var GameView = require('GameView');
 
-  var model = new GameModel(5, 5);
+  var model = new GameModel(4, 4);
   var width = Math.min(window.innerWidth, window.innerHeight);
   var view = new GameView(model, width, width);
 
